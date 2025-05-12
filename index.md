@@ -1,5 +1,3 @@
-Here you can say lots of fun things about your site.
+![alt text](good-website-image.jpg "Me!")
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Hey! I'm Saumya, a soon-to-be (already?) bachelor's graduate interested in Computer Science, AI, philosophy, consciousness, notions of productivity, lifestyles, social phenomena, music, art, movies, love and just the experience of being human. This blog should reflect my very complex scattered opinions on all of these.
