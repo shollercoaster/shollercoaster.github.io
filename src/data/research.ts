@@ -9,7 +9,7 @@ export interface ResearchProject {
   title: string;
   status: ResearchStatus;
   venue?: string; // e.g. "ICLR 2025 · DL4C workshop"
-  role: string; // e.g. "First author"
+  authors: string; // e.g. "Saumya Chaturvedi, Aman Chadha, Laurent Bindschaedler"
   summary: string; // 1-3 sentences
   links: {
     arxiv?: string;
@@ -31,7 +31,7 @@ export const researchProjects: ResearchProject[] = [
     title: 'SQL-of-Thought: Multi-agentic Text-to-SQL with Guided Error Correction',
     status: 'published',
     venue: 'NeurIPS 2025 · DL4C workshop',
-    role: 'First author',
+    authors: 'Saumya Chaturvedi, Aman Chadha, Laurent Bindschaedler',
     summary:
       'A multi-agent framework that decomposes the Text2SQL task into schema linking, subproblem identification, query plan generation, SQL generation, and a guided correction loop. Unlike prior systems that rely only on execution-based static correction, we introduce taxonomy-guided dynamic error modification informed by in-context learning.',
     links: {
@@ -48,7 +48,7 @@ export const researchProjects: ResearchProject[] = [
     title: 'LoRACode: LoRA Adapters for Code Embeddings',
     status: 'published',
     venue: 'ICLR 2025 · DL4C workshop',
-    role: 'First author',
+    authors: 'Saumya Chaturvedi, Aman Chadha, Laurent Bindschaedler',
     summary:
       'Introducing a novel method for finetuning code embedding models on code retrieval based on text and code queries, using low rank adapters, achieving substantial improvements on Mean Reciprocal Rank only on a small subset of trainable parameters.',
     links: {
