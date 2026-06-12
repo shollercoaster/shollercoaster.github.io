@@ -92,10 +92,13 @@ body {
   text-decoration-color: var(--color-accent);
 }
 
-.prose ul,
+.prose ul {
+  list-style-type: disc;
+}
 .prose ol {
   margin: 1em 0;
   padding-left: 1.5em;
+  list-style-type: decimal;
 }
 
 .prose li {

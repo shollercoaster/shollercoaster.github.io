@@ -1,5 +1,5 @@
 export const site = {
-  name: 'Saumya',
+  name: 'Saumya Chaturvedi',
   pronunciation: '/ˈsaʊ.mjə/',
   // Path to a short audio clip of you pronouncing your name, relative to /public.
   // Record a 1-2 second clip and place it at public/audio/name.mp3
