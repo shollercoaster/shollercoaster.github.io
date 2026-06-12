@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { blogCategories, categoryTagStyle } from '../../data/site';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const categoryLabels: Record<string, string> = Object.fromEntries(
+  blogCategories.map((c) => [c.id, c.label])
+);
+---
+
+<BaseLayout title="Blog" description="Notes on AI safety, research, productivity, and more.">
+  <h1 class="text-2xl font-medium mb-6">Blog</h1>
+
+  <!-- Category filter -->
+  <div class="flex gap-2 mb-8 flex-wrap" id="filters">
+    <button
+      data-filter="all"
+      class="filter-btn text-xs px-3 py-1.5 rounded-md border"
+      style="border-color: var(--color-border); background: var(--color-accent-soft); color: var(--color-accent-text);"
+    >
+      All
+    </button>
+    {blogCategories.map((cat) => (
+      <button
+        data-filter={cat.id}
+        class="filter-btn text-xs px-3 py-1.5 rounded-md border"
+        style="border-color: var(--color-border); color: var(--color-text-muted);"
+      >
+        {cat.label}
+      </button>
+    ))}
+  </div>
+
+  <div class="flex flex-col gap-1" id="post-list">
+    {posts.map((post) => (
+      <a
+        href={`/blog/${post.id}`}
+        data-category={post.data.category}
+        class="post-item flex items-center justify-between gap-4 py-3 border-b last:border-b-0"
+        style="border-color: var(--color-border);"
+      >
+        <div>
+          <p class="text-[15px]">{post.data.title}</p>
+          <p class="text-xs mt-0.5" style="color: var(--color-text-faint);">
+            {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+          </p>
+        </div>
+        <span
+          class="text-xs px-2.5 py-0.5 rounded-md whitespace-nowrap"
+          style={categoryTagStyle(post.data.category)}
+        >
+          {categoryLabels[post.data.category]}
+        </span>
+      </a>
+    ))}
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const items = document.querySelectorAll<HTMLElement>('.post-item');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+
+        buttons.forEach((b) => {
+          b.style.background = 'transparent';
+          b.style.color = 'var(--color-text-muted)';
+        });
+        btn.style.background = 'var(--color-accent-soft)';
+        btn.style.color = 'var(--color-accent-text)';
+
+        items.forEach((item) => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.display = show ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</BaseLayout>

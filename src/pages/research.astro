@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import { researchProjects } from '../data/research';
+
+const published = researchProjects
+  .filter((p) => p.status === 'published')
+  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+
+const inProgress = researchProjects
+  .filter((p) => p.status === 'in-progress')
+  .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
+---
+
+<BaseLayout title="Research" description="Published papers and in-progress research projects.">
+  <h1 class="text-2xl font-medium mb-2">Research</h1>
+  <p class="text-[15px] mb-8" style="color: var(--color-text-muted);">
+    Published papers and ongoing work. New projects are added here as they
+    develop, before they're published.
+  </p>
+
+  <h2 class="text-lg font-medium mb-4">Published</h2>
+  <div class="flex flex-col gap-4 mb-12">
+    {published.map((project) => (
+      <div
+        id={project.slug}
+        class="rounded-xl p-5 border"
+        style="border-color: var(--color-border); background: var(--color-surface);"
+      >
+        <p class="text-xs mb-1" style="color: var(--color-text-faint);">{project.venue}</p>
+        <p class="font-medium text-lg mb-1.5">{project.title}</p>
+        <p class="text-sm mb-1" style="color: var(--color-text-muted);">{project.role}</p>
+        <p class="text-[15px] mb-4" style="color: var(--color-text-muted);">{project.summary}</p>
+
+        <div class="flex gap-4 text-sm flex-wrap" style="color: var(--color-accent-text);">
+          {project.links.arxiv && (
+            <a href={project.links.arxiv} class="inline-flex items-center gap-1.5 hover:underline">
+              <Icon name="file-text" class="w-4 h-4" /> arXiv
+            </a>
+          )}
+          {project.links.paper && (
+            <a href={project.links.paper} class="inline-flex items-center gap-1.5 hover:underline">
+              <Icon name="file-text" class="w-4 h-4" /> Paper
+            </a>
+          )}
+          {project.links.poster && (
+            <a href={project.links.poster} class="inline-flex items-center gap-1.5 hover:underline">
+              <Icon name="presentation" class="w-4 h-4" /> Poster
+            </a>
+          )}
+          {project.links.code && (
+            <a href={project.links.code} class="inline-flex items-center gap-1.5 hover:underline">
+              <Icon name="github" class="w-4 h-4" /> Code
+            </a>
+          )}
+          {project.citations !== undefined && (
+            <span class="inline-flex items-center gap-1.5" style="color: var(--color-text-faint);">
+              <Icon name="quote" class="w-4 h-4" /> {project.citations} citations
+            </span>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+
+  {inProgress.length > 0 && (
+    <>
+      <h2 class="text-lg font-medium mb-4">In progress</h2>
+      <div class="flex flex-col gap-4">
+        {inProgress.map((project) => (
+          <div
+            id={project.slug}
+            class="rounded-xl p-5 border"
+            style="border-color: var(--color-border); background: var(--color-surface);"
+          >
+            <p class="text-xs mb-1" style="color: var(--color-text-faint);">{project.role}</p>
+            <p class="font-medium text-lg mb-1.5">{project.title}</p>
+            <p class="text-[15px] mb-4" style="color: var(--color-text-muted);">{project.summary}</p>
+
+            <div class="flex gap-4 text-sm flex-wrap" style="color: var(--color-accent-text);">
+              {project.links.blog && (
+                <a href={project.links.blog} class="inline-flex items-center gap-1.5 hover:underline">
+                  <Icon name="file-text" class="w-4 h-4" /> Read more
+                </a>
+              )}
+              {project.links.code && (
+                <a href={project.links.code} class="inline-flex items-center gap-1.5 hover:underline">
+                  <Icon name="github" class="w-4 h-4" /> Code
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+</BaseLayout>

@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+
+const entries = await getCollection('now');
+const sorted = entries.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const rendered = await Promise.all(
+  sorted.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  })
+);
+---
+
+<BaseLayout title="Now" description="What I've been learning, reading, and working on recently.">
+  <h1 class="text-2xl font-medium mb-2">Now</h1>
+  <p class="text-[15px] mb-8" style="color: var(--color-text-muted);">
+    A running log of what I'm learning, reading, and working on — updated
+    roughly monthly.
+  </p>
+
+  {sorted.length === 0 && (
+    <p class="text-sm" style="color: var(--color-text-faint);">
+      No entries yet. Add markdown files to <code class="text-xs px-1.5 py-0.5 rounded" style="background: var(--color-accent-soft); color: var(--color-accent-text);">src/content/now/</code> to populate this page.
+    </p>
+  )}
+
+  <div class="flex flex-col gap-8">
+    {rendered.map(({ entry, Content }) => (
+      <div>
+        <h2 class="text-lg font-medium mb-2">{entry.data.title}</h2>
+        <div class="prose text-[15px]">
+          <Content />
+        </div>
+      </div>
+    ))}
+  </div>
+</BaseLayout>

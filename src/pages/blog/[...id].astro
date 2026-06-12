@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { blogCategories, categoryTagStyle } from '../../data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const categoryLabels: Record<string, string> = Object.fromEntries(
+  blogCategories.map((c) => [c.id, c.label])
+);
+---
+
+<BaseLayout title={post.data.title} description={post.data.description}>
+  <a href="/blog" class="text-sm" style="color: var(--color-text-muted);">&larr; All posts</a>
+
+  <article class="mt-4">
+    <div class="flex items-center gap-3 mb-3">
+      <span
+        class="text-xs px-2.5 py-0.5 rounded-md"
+        style={categoryTagStyle(post.data.category)}
+      >
+        {categoryLabels[post.data.category]}
+      </span>
+      <span class="text-xs" style="color: var(--color-text-faint);">
+        {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </span>
+    </div>
+
+    <h1 class="text-2xl font-medium mb-2">{post.data.title}</h1>
+    <p class="text-[15px] mb-8" style="color: var(--color-text-muted);">{post.data.description}</p>
+
+    {post.data.coverImage && (
+      <img src={post.data.coverImage} alt="" class="rounded-lg border mb-8" style="border-color: var(--color-border);" />
+    )}
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
