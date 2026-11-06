@@ -42,6 +42,19 @@ const categoryLabels: Record<string, string> = Object.fromEntries(
       <img src={post.data.coverImage} alt="" class="rounded-lg border mb-8" style="border-color: var(--color-border);" />
     )}
 
+    {post.data.tags.length > 0 && (
+      <div class="flex gap-2 flex-wrap mb-8">
+        {post.data.tags.map((tag) => (
+          <span
+            class="text-xs px-2 py-0.5 rounded-md border"
+            style="border-color: var(--color-border); color: var(--color-text-muted);"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+
     <div class="prose">
       <Content />
     </div>

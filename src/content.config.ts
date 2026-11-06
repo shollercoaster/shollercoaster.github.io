@@ -9,6 +9,8 @@ const blog = defineCollection({
     // Category drives the colored tag on cards and the filter on the blog index.
     category: z.enum(['ai-safety', 'research', 'productivity', 'personal']),
     pubDate: z.coerce.date(),
+    // Free-form tags for finer-grained filtering/search than `category`.
+    tags: z.array(z.string()).default([]),
     updatedDate: z.coerce.date().optional(),
     draft: z.boolean().default(false),
     // Optional cover image, path relative to /public, e.g. /images/blog/my-post/cover.png

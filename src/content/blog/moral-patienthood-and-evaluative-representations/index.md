@@ -3,6 +3,7 @@ title: "Moral Patienthood and Evaluative Representations of AI Systems"
 description: "A deep dive on a thoughtpiece for bottoms-up empirical theories for Moral Patienthood of AI systems and discovering evaluative representations in them."
 category: ai-safety
 pubDate: 2026-11-07
+tags: ["moral patienthood", "patrick butlin", "ai welfare", "ai consciousness", "personas"]
 ---
 
 I want to talk about 2 interesting ideas I read through 2 papers today. I'll start with Patrick Butlin's work by his MATS 9.0 Mentee Oscar Gilg, recently accepted into NeurIPS 2026: "Probing Persona Dependent Properties of LLMs". This paper tries to prove that LLMs operate according to fixed preferences, and these preferences can be tracked, stay robust to prefills and can be steered to change model's responses. This is one of the first work to show a statistical measure of evaluative representations within an LLM. The work reports revealed preferences and has a mechanism like so:
