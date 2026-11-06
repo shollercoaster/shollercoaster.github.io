@@ -45,12 +45,13 @@ const categoryLabels: Record<string, string> = Object.fromEntries(
     {post.data.tags.length > 0 && (
       <div class="flex gap-2 flex-wrap mb-8">
         {post.data.tags.map((tag) => (
-          <span
+          <a
+            href={`/blog?tag=${encodeURIComponent(tag.toLowerCase())}`}
             class="text-xs px-2 py-0.5 rounded-md border"
             style="border-color: var(--color-border); color: var(--color-text-muted);"
           >
             {tag}
-          </span>
+          </a>
         ))}
       </div>
     )}

@@ -3,6 +3,7 @@ title: "Bluedot Project Sprint Worklog: Persona Vectors"
 description: "Extending the Persona Vectors research for my Bluedot Project Sprint"
 category: ai-safety
 pubDate: 2026-07-02
+tags: ["persona vectors", "personas", "bluedot", "interpretability", "activation steering", "project sprint"]
 ---
 
 # What I'm working on

@@ -3,6 +3,7 @@ title: "I let Gemini be my Personal Assistant for a month"
 description: "A deep dive on my productivity system trifecta, anecdotes and reflections from when I let Gemini be my Personal Assistant for a month."
 category: productivity
 pubDate: 2025-09-05
+tags: ["productivity", "gemini", "personal assistant", "obsidian", "time tracking", "systems"]
 ---
 
 Back in 2020, when self-improvement blogs, articles, podcasts were all the rage, I read a quote that went like this: "You don't rise to the level of your goals, you fall to the level of your systems". James Clear, Carol Dweck, many affluential writers and thinkers stress on the importance of building consistent systems, habits, and a discipline that paves the way for your sky-high aspirations to touchdown on reality. Learning from these parables of wisdom, I set out to design the all-accomplishing system that would finally calm all chaos for me. As a chronic planner, I tend to fret more about my systems, than the execution of my ideas. The ideation, planning, structure of my goals weighed heavier on my mind than the goals themselves. To do lists, brain dumping, daily journals: you name it, I've tried it. While oftentimes these were breeding grounds for a serious diagnosis of procrastination, it was also necessary to recognize the simplicity that complex tasks revealed once they were appropriately broken down. Kind of like uncovering a scary tall person in a long trench coat only to find 3 little kids stacked on top of each other inside. 

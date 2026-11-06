@@ -8,6 +8,8 @@ const posts = allPosts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
+const allTags = [...new Set(posts.flatMap((p) => p.data.tags))].sort((a, b) => a.localeCompare(b));
+
 const categoryLabels: Record<string, string> = Object.fromEntries(
   blogCategories.map((c) => [c.id, c.label])
 );
@@ -36,11 +38,41 @@ const categoryLabels: Record<string, string> = Object.fromEntries(
     ))}
   </div>
 
+  <!-- Search -->
+  <input
+    id="search"
+    type="search"
+    placeholder="Search posts by title, description, or tag…"
+    class="w-full text-sm px-3 py-2 rounded-md border mb-4 bg-transparent"
+    style="border-color: var(--color-border); color: var(--color-text);"
+  />
+
+  <!-- Tag filter (click to toggle; multiple tags = post must have all) -->
+  {allTags.length > 0 && (
+    <div class="flex gap-2 mb-8 flex-wrap" id="tag-filters">
+      {allTags.map((tag) => (
+        <button
+          data-tag={tag}
+          class="tag-btn text-xs px-2 py-0.5 rounded-md border"
+          style="border-color: var(--color-border); color: var(--color-text-muted);"
+        >
+          {tag}
+        </button>
+      ))}
+    </div>
+  )}
+
+  <p id="no-results" class="text-sm py-3" style="color: var(--color-text-faint);" hidden>
+    No posts match.
+  </p>
+
   <div class="flex flex-col gap-1" id="post-list">
     {posts.map((post) => (
       <a
         href={`/blog/${post.id}`}
         data-category={post.data.category}
+        data-tags={JSON.stringify(post.data.tags.map((t) => t.toLowerCase()))}
+        data-search={[post.data.title, post.data.description, ...post.data.tags].join(' ').toLowerCase()}
         class="post-item flex items-center justify-between gap-4 py-3 border-b last:border-b-0"
         style="border-color: var(--color-border);"
       >
@@ -61,25 +93,66 @@ const categoryLabels: Record<string, string> = Object.fromEntries(
   </div>
 
   <script>
-    const buttons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const catButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const tagButtons = document.querySelectorAll<HTMLButtonElement>('.tag-btn');
     const items = document.querySelectorAll<HTMLElement>('.post-item');
+    const search = document.getElementById('search') as HTMLInputElement;
+    const noResults = document.getElementById('no-results')!;
 
-    buttons.forEach((btn) => {
+    let category = 'all';
+    const activeTags = new Set<string>();
+
+    function style(btn: HTMLElement, on: boolean) {
+      btn.style.background = on ? 'var(--color-accent-soft)' : 'transparent';
+      btn.style.color = on ? 'var(--color-accent-text)' : 'var(--color-text-muted)';
+    }
+
+    function apply() {
+      const q = search.value.trim().toLowerCase();
+      let visible = 0;
+      items.forEach((item) => {
+        const tags: string[] = JSON.parse(item.dataset.tags || '[]');
+        const show =
+          (category === 'all' || item.dataset.category === category) &&
+          [...activeTags].every((t) => tags.includes(t)) &&
+          (!q || (item.dataset.search || '').includes(q));
+        item.style.display = show ? 'flex' : 'none';
+        if (show) visible++;
+      });
+      noResults.hidden = visible > 0;
+
+      const url = new URL(location.href);
+      activeTags.size ? url.searchParams.set('tag', [...activeTags].join(',')) : url.searchParams.delete('tag');
+      q ? url.searchParams.set('q', search.value.trim()) : url.searchParams.delete('q');
+      history.replaceState(null, '', url);
+    }
+
+    catButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        const filter = btn.dataset.filter;
-
-        buttons.forEach((b) => {
-          b.style.background = 'transparent';
-          b.style.color = 'var(--color-text-muted)';
-        });
-        btn.style.background = 'var(--color-accent-soft)';
-        btn.style.color = 'var(--color-accent-text)';
-
-        items.forEach((item) => {
-          const show = filter === 'all' || item.dataset.category === filter;
-          item.style.display = show ? 'flex' : 'none';
-        });
+        category = btn.dataset.filter || 'all';
+        catButtons.forEach((b) => style(b, b === btn));
+        apply();
       });
     });
+
+    tagButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const tag = btn.dataset.tag!.toLowerCase();
+        activeTags.has(tag) ? activeTags.delete(tag) : activeTags.add(tag);
+        style(btn, activeTags.has(tag));
+        apply();
+      });
+    });
+
+    search.addEventListener('input', apply);
+
+    // Restore state from ?tag=a,b&q=text (used by tag links on post pages)
+    const params = new URLSearchParams(location.search);
+    (params.get('tag') || '').split(',').filter(Boolean).forEach((t) => {
+      activeTags.add(t.toLowerCase());
+    });
+    tagButtons.forEach((b) => style(b, activeTags.has(b.dataset.tag!.toLowerCase())));
+    search.value = params.get('q') || '';
+    apply();
   </script>
 </BaseLayout>

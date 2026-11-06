@@ -3,6 +3,7 @@ title: "Transformers from Scratch"
 description: "My working notes on Transformers from Scratch, part of my learnings from the ARENA course."
 category: research
 pubDate: 2026-06-01
+tags: ["transformers", "arena", "mechanistic interpretability", "pytorch", "notes"]
 ---
 
 Basic intuition behind Transformers: you feed in a sequence of length N, then sample from the probability distribution over the N+1-th word, use this to construct a new sequence of length N+1, then feed this new sequence into the model to get a probability distribution over the N+2-th word, and so on.
