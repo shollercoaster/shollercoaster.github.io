@@ -10,9 +10,9 @@ I've been a Research Scholar at Max Planck Institute for Software Systems. My wo
 ICLR 2025 and NeurIPS 2025, and I presented both papers in person as
 posters. Currently a Software Engineer at American Express.`,
   rightNow: [
-    'Currently participating in Bluedot Impact Technical AI Safety Project.',
-    'Organizing and leading a study group focused on ARENA curriculum',
-    'Reading about Persona Vectors, AI Safety for Multi-agent systems and building Autograd from scratch',
+    'Writing a blog post daily on AI safety papers and concepts I read and think about.',
+    'Reading and writing about Moral Patienthood and Preference Vectors in LLMs to build a personal theory of change based on LLM Personas-centered AI Safety methods!',
+    'About to finish ARENA curriculum through the TARA program and working on finding an idea for the final Capstone Project!',
   ],
   social: {
     email: 'mailto:sholasubscriptions@gmail.com',

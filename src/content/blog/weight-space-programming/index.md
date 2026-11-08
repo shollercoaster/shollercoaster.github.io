@@ -1,0 +1,13 @@
+---
+title: "Weight Space Programming"
+description: "Small explainer on weight space programming work by MIT"
+category: ai-safety
+pubDate: 2026-11-08
+tags: ["model weight editing"]
+---
+
+Happy Diwali! While I meant to write this yesterday, I had a super tiring day and didn't quit this daily writing habit, simply on the technicality that my push was 
+
+Yesterday's TARA class spun a cobweb of seemingly disjoint ideas that all eventually came together to pave way for what we always end up believing in: a doomed picture of the world encouraging an optimist nature. It started at the Breakfast table, where we sat talking about politics, the blue wave, the nitty grittys of Indian Poha, and the usual AI improvements. Someone mentioned the paper on weight space programming. Its a marvelous improvement even when you remove the misinterpreted explanations and only focus on the real depth. Basically MIT CSAIL researchers found that GPT 6 Astra is able to understand model weights of a smaller Qwen 0.8B model, recognize the inefficiencies of its performance on MATH dataset, and edit its weights to improve performance on those problems from 6% to 48.1%! This is a wonderful result showing how for the first time, models are able to optimize formats other than text, and understand previously-seemingly-incomprehensible large lists of model weights, well enough to recognize what game a model was trained on (not perfect accuracy for each but good enough) and edit them for improvement! Now the editing part is a bit misleading, Astra didn't magically make the Qwen model good at math problems, it recognized a circular reasoning of overthinking that Qwen kept falling into while solving those complex equations, and simply suppressed the neurons responsible for this over-reasoning leading to wrong answers. This is all information I learnt later after reading the blog on this work, but while we were discussing this at breakfast - I was fully skeptical. Glad to say I'm roven wrong, and LLMs could possibly remove the need for optimizers like Adam, Muon and such.
+
+However this does make me immediately think of the worst: if models are left to surveil another model's or their own weights, would they jump to editing weights to facilitate collusion, deception or make the other models privy to a wide range of misalignment behavior? I would be interested to prove or disprove a propensity or capability of a model to do this. 
