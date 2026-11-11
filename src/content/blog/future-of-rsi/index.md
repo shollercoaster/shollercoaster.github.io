@@ -2,7 +2,7 @@
 title: "Are we going to die?"
 description: "Will RSI win, or the pureness of human heart?"
 category: ai-safety
-pubDate: 2026-11-10
+pubDate: 2026-11-11
 tags: ["doomerism", "rsi"]
 ---
 
