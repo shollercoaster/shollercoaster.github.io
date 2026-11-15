@@ -7,7 +7,7 @@ const blog = defineCollection({
     title: z.string(),
     description: z.string(),
     // Category drives the colored tag on cards and the filter on the blog index.
-    category: z.enum(['ai-safety', 'research', 'productivity', 'personal']),
+    category: z.enum(['ai-safety', 'research', 'productivity', 'personal', 'philosophy']),
     pubDate: z.coerce.date(),
     // Free-form tags for finer-grained filtering/search than `category`.
     tags: z.array(z.string()).default([]),

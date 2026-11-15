@@ -27,6 +27,7 @@ export const blogCategories = [
   { id: 'research', label: 'Research', color: 'blue' },
   { id: 'productivity', label: 'Productivity', color: 'green' },
   { id: 'personal', label: 'Personal', color: 'red' },
+  { id: 'philosophy', label: 'Philosophy', color: 'amber' },
 ] as const;
 
 export const categoryColorMap: Record<string, { bg: string; text: string }> = {
@@ -34,6 +35,7 @@ export const categoryColorMap: Record<string, { bg: string; text: string }> = {
   blue:   { bg: 'var(--color-blue-soft)', text: 'var(--color-blue-text)' },
   green:  { bg: 'var(--color-green-soft)', text: 'var(--color-green-text)' },
   red:    { bg: 'var(--color-red-soft)', text: 'var(--color-red-text)' },
+  amber:  { bg: 'var(--color-amber-soft)', text: 'var(--color-amber-text)' },
 };
 
 const categoryToColor: Record<string, string> = Object.fromEntries(
