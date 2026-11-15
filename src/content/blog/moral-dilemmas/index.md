@@ -1,0 +1,27 @@
+---
+title: "To be or not to be (moral)"
+description: "Arguing over whether moral subjectivity is an important trait to prioritize for creating (or testing) artificially conscious beings."
+category: philosophy
+pubDate: 2026-11-15
+tags: ["future", "consciousness", "morality"]
+---
+
+{This article was dictated using Wisper Flow - thanks team!}
+
+Yesterday's TARA class led to an interesting explosion of conversations where I found myself continuously playing offense on multiple topics. It gave me a good opportunity to defend and portray my opinions honestly and aggressively, if they may, in public while also receiving healthy opposition and getting to think about ideas in a constructive way (sometimes leading me to change my opinion, sometimes requiring me to hold it even more strongly).
+
+The first debate happened around firecrackers. I think I laid down some good points and was able to make it clear that I do not respect or like people who put off firecrackers in a city where we're already, on normal days, breathing 300+ AQI (and with firecrackers, surviving in 3,000+ AQI). I was able to talk about how, once again, the economic disparity plays strongly into this. We are continually indulging in luxuries that make life harder for those around us that don't have the right safety mechanisms. For example after blowing crackers, we go back to our homes with air purifiers and noise protection but other people who do not have the luxury of being able to buy these protective devices suffer from the consequences of our actions.
+
+It was hard and is always hard to convince someone to change their belief because I always think change has to be self-powered and cannot be possible without an honest strong sense of belief. My goal was not to bring about change in how other people react or live life but it was only to portray myself without resistance and I felt happy to be able to do that.
+
+The second set of conversations at lunch revolved around pretty controversial topics: politics, Democrats, riots, atrocities, religion? Finally we settled into playing Kiss, Marry, Kill so you could say it all worked out happily in the end. The evening brought the opportunity to think about morality and the concept of enabling morality in the AI systems. This was something I was wrestling with after the Jeff Sebo talk I attended in EAG NYC. But now I got to think about it in a more interpersonal manner. Throughout my multiple conversations with TARA's students, I came to learn that morality is deeply subjective and that we can never be objective about any aspect of it. I agreed with the former but I always believe that there are universally recognized truths, no matter how abstract or vague or few they may be. There were certain principles that seemed intuitive to me but I realize are not so for everyone else.
+
+I updated my beliefs and once again came to wrestle with the question: What is consciousness if not an extension of a personal morality? There are different models to proximate the test for consciousness, but I personally believe that the substrate of most of them boils down to this. Because consciousness requires the lived experience of a unique conscience being, which has the agency and the motivation to act on that agency (that is, ability). I believed morality to be a good proxy to showcase this independent conscious energy in any human being. I am realizing now that it's not possible to encode morality without letting any of our personal biases bleed and so this cannot be a fair way to create an artificially intelligent morally equipped being. This is why I am really deliberating on whether that is a good way to proceed with AI safety.
+
+If we are to imagine superintelligent AI systems in the near or distant future, they will possess some of the agencies or capabilities that humans have. They will perhaps display curiosity. They will perhaps display an inquisition about their surroundings, the nature of their own beings, of our beings. They will perhaps be introspective. They will maybe want to think about their own morals, their own preferences, their own values, their alignment, and maybe have a drive to act on any of these.
+
+I'm not sure whether we should encode this personability into AI systems ourselves or whether we should merely be observers when this quality perpetuates in these beings. I find it hard to not have a problem with either. If we don't take an active step, like Jeff argues, we will not be able to steer the development of such personability ourselves. We might be too late to the scene and create superhuman beings that we are not able to control.
+
+However if we start by encoding these characteristics ourselves and we are not able to get the formula right, and we mess up by the smallest chance, we will once again have opened Pandora's box. We will not be able to contain a situation which will inevitably lead to human extinction.
+
+While my childhood dream was to answer questions of human consciousness by thinking about or cultivating artificial consciousness and trying to use it as a testbed for our own motives to solve all the problems of the universe, I still find myself unsure of whether that is a good strategy to adopt and whether it will be beneficial for all of humanity. My current belief stands with the fact that one person's curiosity does not justify a non-zero probability of human extinction for all of us. So for now I must rest my qualms. 
