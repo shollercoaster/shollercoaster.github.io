@@ -1,9 +1,9 @@
 ---
-title: "ICLR Reviews are too much"
+title: "Are AI Agents Sycophantic to each other?"
 description: "-"
-category: personal
+category: ai-safety
 pubDate: 2026-11-18
-tags: ["life"]
+tags: ["life", "multi agent", "swarm"]
 ---
 
 Once again I am not writing much due to being preoccupied with ICLR Reviews. We did get the classic "My concerns are answered but I will keep my score of Weak Reject. Thanks" and also one review being the exact same but finishing with "Also the authors should improve their writing skills" while their 2 sentence review was drowning in typos and grammatical errors... So yeah that was not fun. But we anyways tread and keep moving.
